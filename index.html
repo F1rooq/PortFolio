@@ -1,132 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>Farouk | Personal Portfolio</title>
-
-    <meta name="description"
-        content="Personal portfolio website of Farouk Mahceni, Software Engineer.">
-
-    <meta property="og:title" content="Farouk Portfolio">
-    <meta property="og:description"
-        content="Software Engineer and Full Stack Developer">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farooq | Web Developer</title>
+  <meta name="description" content="Farooq, a beginner full-stack web developer open to freelance work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <!-- NOTES: texts and projects live in script.js (TEXTS / PROJECTS). Colors live in style.css (COLORS).
+       Here you only see data-i18n="key", which script.js fills with English or Arabic. -->
+  <canvas id="bg"></canvas>          <!-- moving stars background -->
+  <div class="glow"></div>           <!-- light that follows the mouse -->
+  <div class="progress"></div>       <!-- scroll bar at the top -->
+  <div class="toast" id="toast"></div>
 
-<header>
-
-    <h1>Farouk Portfolio</h1>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+  <header class="nav">
+    <a class="logo" href="#home">F<span>.</span></a>
+    <nav class="links">
+      <a href="#home" data-i18n="nav_home"></a>
+      <a href="#about" data-i18n="nav_about"></a>
+      <a href="#journey" data-i18n="nav_journey"></a>
+      <a href="#projects" data-i18n="nav_projects"></a>
+      <a href="#contact" data-i18n="nav_contact"></a>
     </nav>
+    <div class="tools">
+      <button id="lang" aria-label="Language"></button>
+      <button id="theme" aria-label="Theme"></button>
+    </div>
+  </header>
 
-</header>
-
-<main>
-
-    <section class="hero">
-
-        
-
-        <div class="hero-content">
-
-            <h2>Who Am I?</h2>
-
-            <p>
-                My name is <strong>Farouk Mahceni</strong> I am a Software Engineer with more than three
-                years of experience in web and mobile application development.
-            </p>
-
-            <p>
-                I specialize in building modern websites, Android and iOS
-                applications, and desktop software. I continuously improve
-                my skills by learning new technologies and creating practical
-                projects that solve real-world problems.
-            </p>
-
-            <a href="#skills">Go to My Skills</a>
-
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <p class="hi" data-i18n="hi"></p>
+        <h1 data-i18n="name"></h1>
+        <p class="role"><span id="typed"></span><i class="cursor"></i></p>
+        <p class="pitch" data-i18n="pitch"></p>
+        <div class="cta">
+          <a class="btn" href="#projects" data-i18n="btn_projects"></a>
+          <button class="btn ghost" data-open data-i18n="btn_mail"></button>
         </div>
-<figure>
-
-            <img src="profile.jpg"
-                alt="Personal photo of Farouk">
-
-            <figcaption>
-                Farouk
-            </figcaption>
-
-        </figure>
-        
+      </div>
+      <!-- PHOTO PLACE (arc reactor). To use your photo: replace the letter F with
+           <img src="images/me.jpg" alt="Farooq"> -->
+      <div class="stage"><div class="reactor" id="reactor">
+        <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+        <div class="photo">F</div>
+      </div></div>
     </section>
 
-    <section id="skills">
+    <div class="marquee"><div class="track" id="track"></div></div>
 
-        <h2>My Skills</h2>
-
-        <div class="skills-grid">
-
-            <article class="skill-card">
-                <h3>HTML5</h3>
-                <p>Semantic web structure.</p>
-            </article>
-
-            <article class="skill-card">
-                <h3>CSS3</h3>
-                <p>Responsive and modern interfaces.</p>
-            </article>
-
-            <article class="skill-card">
-                <h3>JavaScript</h3>
-                <p>Interactive web applications.</p>
-            </article>
-
-            <article class="skill-card">
-                <h3>Flutter</h3>
-                <p>Cross-platform mobile applications.</p>
-            </article>
-
-            <article class="skill-card">
-                <h3>Laravel</h3>
-                <p>Backend web development.</p>
-            </article>
-
-            <article class="skill-card">
-                <h3>Next.js</h3>
-                <p>Modern React applications.</p>
-            </article>
-
-        </div>
-
+    <section id="about">
+      <h2 class="rv" data-i18n="about_title"></h2>
+      <div class="about-grid">
+        <div class="rv"><p data-i18n="about_p1"></p><p data-i18n="about_p2"></p></div>
+        <ul class="facts rv">
+          <li data-tilt><b data-i18n="f1k"></b><span data-i18n="f1v"></span></li>
+          <li data-tilt><b data-i18n="f2k"></b><span data-i18n="f2v"></span></li>
+          <li data-tilt><b data-i18n="f3k"></b><span data-i18n="f3v"></span></li>
+        </ul>
+      </div>
     </section>
 
-    <p>
-        <a href="https://github.com/F1rooq"
-            target="_blank"
-            rel="noopener noreferrer">
-            Visit My GitHub
-        </a>
-    </p>
+    <section id="journey">
+      <h2 class="rv" data-i18n="journey_title"></h2>
+      <!-- To add a step: copy one <li>, change the icon text/class and the two keys, then add the texts in script.js -->
+      <ol class="tl">
+        <li class="rv"><div class="ico html" data-tilt>&lt;/&gt;</div><div><h3 data-i18n="j1_t"></h3><p data-i18n="j1_d"></p></div></li>
+        <li class="rv"><div class="ico js" data-tilt>JS</div><div><h3 data-i18n="j2_t"></h3><p data-i18n="j2_d"></p></div></li>
+        <li class="rv"><div class="ico py" data-tilt>Py</div><div><h3 data-i18n="j3_t"></h3><p data-i18n="j3_d"></p></div></li>
+        <li class="rv"><div class="ico full" data-tilt>{ }</div><div><h3 data-i18n="j4_t"></h3><p data-i18n="j4_d"></p></div></li>
+      </ol>
+    </section>
 
-</main>
+    <section id="projects">
+      <h2 class="rv" data-i18n="projects_title"></h2>
+      <p class="sub rv" data-i18n="projects_sub"></p>
+      <div class="grid" id="grid"></div> <!-- cards are built from PROJECTS in script.js -->
+    </section>
 
-<footer>
+    <section id="contact" class="contact">
+      <h2 class="rv" data-i18n="contact_title"></h2>
+      <p class="rv" data-i18n="contact_p"></p>
+      <div class="cta rv">
+        <button class="btn big" data-open data-i18n="mail_btn"></button>
+        <a class="btn ghost big" id="ghBtn" href="#" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
 
-    <p>
-        © 2026 Mahceni Farouk All Rights Reserved.
-    </p>
+  <footer><span>© <span id="year"></span> Farooq</span><span data-i18n="footer"></span></footer>
 
-</footer>
+  <!-- CONTACT FORM PAGE (opens when you tap "Email me") -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <form class="sheet" id="form">
+      <button type="button" class="x" id="close" aria-label="Close">×</button>
+      <h2 data-i18n="form_title"></h2>
+      <label><span data-i18n="l_name"></span><input name="name" required autocomplete="name"></label>
+      <label><span data-i18n="l_email"></span><input name="email" type="email" required autocomplete="email"></label>
+      <label><span data-i18n="l_subject"></span><input name="subject" required></label>
+      <label><span data-i18n="l_message"></span><textarea name="message" rows="5" required></textarea></label>
+      <button class="btn big" data-i18n="send"></button>
+      <p class="hint" id="formMsg"></p>
+    </form>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
